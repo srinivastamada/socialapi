@@ -95,7 +95,7 @@ function internalUserDetails($input) {
     
     try {
         $db = getDB();
-        $sql = "SELECT uid, name, email FROM social_users WHERE email=:input";
+        $sql = "SELECT uid, name, email,provider_pic, provider_id FROM social_users WHERE email=:input";
         $stmt = $db->prepare($sql);
         $stmt->bindParam("input", $input,PDO::PARAM_STR);
         $stmt->execute();
